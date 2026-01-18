@@ -1,0 +1,12 @@
+<div class="header-container">
+    <app-header />
+</div>
+
+<div class="content-container">
+    <router-outlet />
+</div>
+
+<p-drawer [header]="titleDrawer" [(visible)]="visible" position="right">
+    <p [innerHTML]="text">
+    </p>
+</p-drawer>

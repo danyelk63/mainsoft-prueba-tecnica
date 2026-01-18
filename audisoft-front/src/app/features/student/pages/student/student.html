@@ -1,0 +1,23 @@
+<p-toast position="bottom-right" />
+<p-confirmdialog />
+
+<div class="student-header">
+    <h2>Estudiantes</h2>
+    <p-button label="Agregar Nuevo" variant="outlined" severity="success" icon="pi pi-plus" (onClick)="onAddNew()" />
+</div>
+
+<app-table [columns]="columns" [httpService]="httpStudentService" [service]="studentService" (onEdit)="onEdit($event)" (onDelete)="onDelete($event)" (onRow)="onRow($event)"></app-table>
+
+<p-dialog [header]="newStudent ? 'Agregar nuevo estudiante' : 'Editar estudiante'" [modal]="true" [(visible)]="visible"
+    [style]="{ width: '25rem' }">
+    <form [formGroup]="form">
+        <div class="input-container">
+            <label for="name">Nombre</label>
+            <input pInputText id="name" autocomplete="off" formControlName="name" />
+        </div>
+        <div class="buttons-container">
+            <p-button label="Cancelar" severity="secondary" (click)="closeDialog()" />
+            <p-button label="Guardar" (click)="onSave()" [disabled]="form.invalid || loading" />
+        </div>
+    </form>
+</p-dialog>

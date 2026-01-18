@@ -1,0 +1,54 @@
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: audisoft_db
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: YourStrong!Passw0rd
+      MSSQL_PID: Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+    healthcheck:
+      test: /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "YourStrong!Passw0rd" -C -Q "SELECT 1" || exit 1
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 60s
+
+  init-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: audisoft_init_db
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: YourStrong!Passw0rd
+    depends_on:
+      db:
+        condition: service_healthy
+    command: /opt/mssql-tools18/bin/sqlcmd -S db -U sa -P "YourStrong!Passw0rd" -C -Q "IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'audisoft_db') CREATE DATABASE audisoft_db" || true
+
+  app:
+    build: .
+    container_name: audisoft_api
+    environment:
+      DB_HOST: db
+      DB_PORT: 1433
+      DB_USERNAME: sa
+      DB_PASSWORD: YourStrong!Passw0rd
+      DB_DATABASE: audisoft_db
+      DB_ENCRYPT: false
+      PORT: 3000
+      NODE_ENV: development
+    ports:
+      - "3000:3000"
+    depends_on:
+      init-db:
+        condition: service_completed_successfully
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: sh -c "sleep 15 && npm run migration:run && npm run dev"
+
+volumes:
+  mssql_data:

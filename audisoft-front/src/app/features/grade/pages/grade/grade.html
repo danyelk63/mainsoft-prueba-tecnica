@@ -1,0 +1,58 @@
+<p-toast position="bottom-right" />
+<p-confirmdialog />
+
+<div class="grade-header">
+    <h2>Notas</h2>
+    <p-button label="Agregar Nuevo" variant="outlined" severity="success" icon="pi pi-plus" (onClick)="onAddNew()" />
+</div>
+
+<app-table [columns]="columns" [httpService]="httpGradeService" [service]="gradeService" (onEdit)="onEdit($event)" (onDelete)="onDelete($event)"></app-table>
+
+<p-dialog [header]="newGrade ? 'Agregar nueva nota' : 'Editar nota'" [modal]="true" [(visible)]="visible"
+    [style]="{ width: '30rem' }">
+    <form [formGroup]="form">
+        <div class="input-container">
+            <label for="teacher" class="block mb-2">Docente</label>
+            <p-select 
+                id="teacher"
+                formControlName="teacherId" 
+                [options]="teachers" 
+                optionLabel="name" 
+                optionValue="id"
+                placeholder="Seleccione un docente"
+                styleClass="w-full">
+            </p-select>
+        </div>
+        <div class="input-container">
+            <label for="student" class="block mb-2">Estudiante</label>
+            <p-select 
+                id="student"
+                formControlName="studentId" 
+                [options]="students" 
+                optionLabel="name" 
+                optionValue="id"
+                placeholder="Seleccione un estudiante"
+                styleClass="w-full">
+            </p-select>
+        </div>
+        <div class="input-container">
+            <label for="name">Nombre</label>
+            <input pInputText id="name" autocomplete="off" formControlName="name" />
+        </div>
+        <div class="input-container">
+            <label for="value" class="block mb-2">Valor</label>
+            <p-inputNumber 
+                id="value" 
+                formControlName="value" 
+                mode="decimal" 
+                [min]="0"
+                [maxFractionDigits]="2"
+                styleClass="w-full">
+            </p-inputNumber>
+        </div>
+        <div class="buttons-container">
+            <p-button label="Cancelar" severity="secondary" (click)="closeDialog()" />
+            <p-button label="Guardar" (click)="onSave()" [disabled]="form.invalid || loading" />
+        </div>
+    </form>
+</p-dialog>

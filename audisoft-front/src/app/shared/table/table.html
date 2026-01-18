@@ -1,0 +1,24 @@
+<p-toast position="bottom-right" />
+<p-table [value]="values" styleClass="centered-table">
+    <ng-template #header>
+        <tr>
+            @for (column of columns; track $index) {
+                <th>{{ column.name }}</th>
+            }
+            <th>Acciones</th>
+        </tr>
+    </ng-template>
+    <ng-template #body let-value>
+        <tr (click)="onClickRow(value.id)">
+            @for (column of columns; track column.name) {
+                <td>{{ value[column.key] }}</td>
+            }
+            <td>
+                <p-button icon="pi pi-pencil" [rounded]="true" [text]="true" severity="success" (onClick)="onClickEdit(value.id, $event)"></p-button>
+                <p-button icon="pi pi-trash" [rounded]="true" [text]="true" severity="danger" (onClick)="onClickDelete(value.id, $event)"></p-button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="limit" [totalRecords]="total" [rowsPerPageOptions]="[10, 20, 50, 100]"></p-paginator>

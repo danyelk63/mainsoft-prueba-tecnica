@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border: 1px solid #D4D4D4;
+    box-shadow: 0 0 10px 0 #D4D4D4;
+}
+
+.content-container {
+  width: 70%;
+  margin: 0 auto;
+  padding-top: calc(65px + 15px);
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    width: 100%;
+    padding: calc(65px + 15px) 1rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-container {
+    padding: calc(60px + 15px) 0.75rem 0.75rem;
+  }
+}

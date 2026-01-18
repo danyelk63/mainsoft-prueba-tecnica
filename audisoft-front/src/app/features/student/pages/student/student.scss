@@ -1,0 +1,103 @@
+:host ::ng-deep {
+  .p-dialog-header {
+    padding: 10px 24px;
+    padding-bottom: 0;
+  }
+
+  .p-dialog {
+    .p-dialog-content {
+      padding: 1.5rem;
+    }
+  }
+}
+
+.student-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+}
+
+form {
+
+  .input-container {
+    margin: 20px 0;
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    input,
+    .p-select,
+    .p-inputnumber {
+      width: 100%;
+    }
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .student-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+    h2 {
+      font-size: 1.25rem;
+    }
+  }
+
+  :host ::ng-deep {
+    .p-dialog {
+      width: 90vw !important;
+      max-width: 90vw !important;
+
+      .p-dialog-content {
+        padding: 1rem;
+      }
+    }
+  }
+
+  form {
+    .buttons-container {
+      flex-direction: column;
+      gap: 0.75rem;
+
+      .p-button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .student-header {
+    margin-bottom: 1rem;
+
+    h2 {
+      font-size: 1.125rem;
+    }
+  }
+
+  form {
+    .input-container {
+      margin: 15px 0;
+    }
+
+    .buttons-container {
+      gap: 0.5rem;
+    }
+  }
+}
