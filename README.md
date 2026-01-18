@@ -21,27 +21,54 @@ audisoft-prueba-tecnica/
 
 ## 📸 Capturas de Pantalla
 
-### Vista General de la Aplicación
+### Página de Estudiantes
 
-![Pagina de docentes](image.png)
+![Página de Estudiantes](./images/studentPage.png)
 
-### Gestión de Estudiantes
+*Vista principal de la gestión de estudiantes con tabla, paginación y opciones de filtrado.*
 
-![Estudiantes](./screenshots/estudiantes.png)
+### Página de Docentes
 
-*Interfaz para gestionar estudiantes con opciones de crear, editar y eliminar.*
+![Página de Docentes](./images/teacherPage.png)
 
-### Gestión de Docentes
+*Interfaz de administración de docentes con funcionalidades completas de gestión.*
 
-![Docentes](./screenshots/docentes.png)
+### Página de Notas
 
-*Panel de administración de docentes con funcionalidades completas de CRUD.*
+![Página de Notas](./images/gradePage.png)
 
-### Gestión de Notas
+*Sistema de gestión de calificaciones con filtros avanzados por estudiante o docente.*
 
-![Notas](./screenshots/notas.png)
+### Formulario de Crear/Editar Estudiante
 
-*Sistema de gestión de calificaciones con filtros por estudiante o docente.*
+![Formulario Estudiante](./images/createEditStudent.png)
+
+*Formulario modal para crear o editar información de estudiantes con validación de campos.*
+
+### Formulario de Crear/Editar Docente
+
+![Formulario Docente](./images/createEditTeacher.png)
+
+*Formulario para registrar o modificar datos de docentes en el sistema.*
+
+### Formulario de Crear/Editar Nota
+
+![Formulario Nota](./images/createEditGrade.png)
+
+*Formulario para asignar o actualizar calificaciones vinculadas a estudiantes y docentes.*
+
+### Sidebar de Estudiantes
+
+![Sidebar Estudiantes](./images/studentSidebar.png)
+
+*Panel lateral con información detallada y opciones adicionales para estudiantes.*
+
+### Sidebar de Docentes
+
+![Sidebar Docentes](./images/teacherSidebar.png)
+
+*Panel lateral con detalles y herramientas de gestión para docentes.*
+
 
 ## 🚀 Inicio Rápido
 
