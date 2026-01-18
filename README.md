@@ -19,6 +19,30 @@ audisoft-prueba-tecnica/
 └── README.md              # Este archivo
 ```
 
+## 📸 Capturas de Pantalla
+
+### Vista General de la Aplicación
+
+![Pagina de docentes](image.png)
+
+### Gestión de Estudiantes
+
+![Estudiantes](./screenshots/estudiantes.png)
+
+*Interfaz para gestionar estudiantes con opciones de crear, editar y eliminar.*
+
+### Gestión de Docentes
+
+![Docentes](./screenshots/docentes.png)
+
+*Panel de administración de docentes con funcionalidades completas de CRUD.*
+
+### Gestión de Notas
+
+![Notas](./screenshots/notas.png)
+
+*Sistema de gestión de calificaciones con filtros por estudiante o docente.*
+
 ## 🚀 Inicio Rápido
 
 ### Prerrequisitos
@@ -52,20 +76,11 @@ npm install
 
 ### Ejecución
 
-#### Base de Datos
-
-El backend incluye configuración de Docker para la base de datos SQL Server:
-
-```bash
-cd "audisoft-back"
-docker-compose up -d
-```
-
 #### Backend
 
 ```bash
 cd "audisoft-back"
-npm run dev
+docker-compose up --build
 ```
 
 El backend estará disponible en: `http://localhost:3000`
