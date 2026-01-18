@@ -30,18 +30,21 @@ audisoft-prueba-tecnica/
 ### Instalación
 
 1. Clonar el repositorio:
+
 ```bash
-git clone <url-del-repositorio>
+git clone https://github.com/danyelk63/mainsoft-prueba-tecnica.git
 cd audisoft-prueba-tecnica
 ```
 
 2. Configurar Backend:
+
 ```bash
 cd "audisoft-back"
 npm install
 ```
 
 3. Configurar Frontend:
+
 ```bash
 cd ../audisoft-front
 npm install
@@ -79,12 +82,14 @@ El frontend estará disponible en: `http://localhost:4200`
 ## 🧪 Ejecutar Tests
 
 ### Tests del Backend
+
 ```bash
 cd "audisoft-back"
 npm test
 ```
 
 ### Tests del Frontend
+
 ```bash
 cd audisoft-front
 npm test
@@ -93,6 +98,7 @@ npm test
 ## 📚 Tecnologías Utilizadas
 
 ### Backend
+
 - Node.js
 - Express
 - TypeScript
@@ -101,6 +107,7 @@ npm test
 - Docker
 
 ### Frontend
+
 - Angular 21
 - PrimeNG
 - RxJS
@@ -130,12 +137,14 @@ npm test
 ## 🏗️ Arquitectura
 
 ### Backend (Clean Architecture)
+
 - **Domain**: Entidades y repositorios
 - **Application**: Casos de uso
 - **Infrastructure**: Implementaciones de repositorios y base de datos
 - **Presentation**: Controladores y rutas
 
 ### Frontend (Feature-based)
+
 - **Features**: Módulos por funcionalidad (student, teacher, grade)
 - **Shared**: Componentes y servicios compartidos
 - **Core**: Servicios principales (drawer, header)
